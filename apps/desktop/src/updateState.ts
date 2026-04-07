@@ -32,7 +32,6 @@ export function getAutoUpdateDisabledReason(args: {
   isDevelopment: boolean;
   isPackaged: boolean;
   platform: NodeJS.Platform;
-  appImage?: string | undefined;
   disabledByEnv: boolean;
 }): string | null {
   if (args.isDevelopment || !args.isPackaged) {
@@ -40,9 +39,6 @@ export function getAutoUpdateDisabledReason(args: {
   }
   if (args.disabledByEnv) {
     return "Automatic updates are disabled by the T3CODE_DISABLE_AUTO_UPDATE setting.";
-  }
-  if (args.platform === "linux" && !args.appImage) {
-    return "Automatic updates on Linux require running the AppImage build.";
   }
   return null;
 }

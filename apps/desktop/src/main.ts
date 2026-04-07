@@ -561,7 +561,6 @@ function handleCheckForUpdatesMenuClick(): void {
     isDevelopment,
     isPackaged: app.isPackaged,
     platform: process.platform,
-    appImage: process.env.APPIMAGE,
     disabledByEnv: process.env.T3CODE_DISABLE_AUTO_UPDATE === "1",
   });
   if (disabledReason) {
@@ -784,7 +783,6 @@ function shouldEnableAutoUpdates(): boolean {
       isDevelopment,
       isPackaged: app.isPackaged,
       platform: process.platform,
-      appImage: process.env.APPIMAGE,
       disabledByEnv: process.env.T3CODE_DISABLE_AUTO_UPDATE === "1",
     }) === null
   );
